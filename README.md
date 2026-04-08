@@ -42,6 +42,7 @@ Place the MiniProject2_Group/ folder inside your web root:
 Open `config/db.php` and update the settings to match your environment:
 
 ```php
+// Default settings for XAMPP
 $host     = 'localhost';
 $dbname   = 'pcrs_db';
 $username = 'root';
