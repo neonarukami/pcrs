@@ -71,4 +71,4 @@ http://localhost/MiniProject2_Group/auth/login.php
 
 ## License
 
-This project was developed as a Mini Project assignment. For academic use only.
+> This project was developed as a Mini Project assignment. For academic use only.
