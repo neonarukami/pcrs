@@ -1,7 +1,7 @@
 # PCRS - Polytechnic Course Registration System
 ### Sistem Pendaftaran Kursus Politeknik
 
-A web-based course registration system built with PHP, MySQL, and Bootstrap 5. This system allows students to register and drop courses, while admins can manage the course list with a live AJAX search feature.
+A web-based course registration system built with PHP, JavaScript, AJAX, MySQL, and Bootstrap 5. This system allows students to register and drop courses, while admins can manage the course list with a live AJAX search feature.
 
 ---
 
