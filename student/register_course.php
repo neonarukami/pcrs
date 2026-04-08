@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register_course'])) {
     }
 }
 
-// --- PROSES GUGUR (DROP) KURSUS ---
+// --- PROSES UNENROLL KURSUS ---
 if (isset($_GET['drop'])) {
     $reg_id = (int)$_GET['drop'];
     // Pastikan hanya kursus pelajar ini sahaja yang dipadam
@@ -80,24 +80,24 @@ $my_courses = $stmt_my_courses->fetchAll(PDO::FETCH_ASSOC);
         <div class="container">
             <a class="navbar-brand" href="dashboard.php">PCRS - Pelajar</a>
             <div class="d-flex">
-                <a href="dashboard.php" class="btn btn-outline-light btn-sm me-2">Kembali</a>
-                <a href="../auth/logout.php" class="btn btn-danger btn-sm">Log Keluar</a>
+                <a href="dashboard.php" class="btn btn-outline-light btn-sm me-2">Return</a>
+                <a href="../auth/logout.php" class="btn btn-danger btn-sm">Log Out</a>
             </div>
         </div>
     </nav>
 
     <div class="container mt-4">
-        <h3 class="mb-4">Pendaftaran Subjek</h3>
+        <h3 class="mb-4">Subject Registration</h3>
         <?= $message; ?>
 
         <div class="row">
             <div class="col-md-4 mb-4">
                 <div class="card shadow-sm">
-                    <div class="card-header bg-primary text-white">Daftar Kursus Baru</div>
+                    <div class="card-header bg-primary text-white">Register new course</div>
                     <div class="card-body">
                         <form action="register_course.php" method="POST">
                             <div class="mb-3">
-                                <label class="form-label">Pilih Kursus</label>
+                                <label class="form-label">Choose Course</label>
                                 <select name="course_id" class="form-select" required>
                                     <option value="" selected disabled>-- Sila Pilih --</option>
                                     <?php foreach($all_courses as $course): ?>
@@ -107,7 +107,7 @@ $my_courses = $stmt_my_courses->fetchAll(PDO::FETCH_ASSOC);
                                     <?php endforeach; ?>
                                 </select>
                             </div>
-                            <button type="submit" name="register_course" class="btn btn-primary w-100">Daftar</button>
+                            <button type="submit" name="register_course" class="btn btn-primary w-100">Register</button>
                         </form>
                     </div>
                 </div>
@@ -115,15 +115,15 @@ $my_courses = $stmt_my_courses->fetchAll(PDO::FETCH_ASSOC);
 
             <div class="col-md-8">
                 <div class="card shadow-sm">
-                    <div class="card-header bg-dark text-white">Slip Kursus Saya</div>
+                    <div class="card-header bg-dark text-white">My Courses</div>
                     <div class="card-body p-0">
                         <table class="table table-hover table-striped m-0">
                             <thead>
                                 <tr>
-                                    <th>Bil</th>
-                                    <th>Kod Kursus</th>
-                                    <th>Nama Kursus</th>
-                                    <th>Tindakan</th>
+                                    <th>Num</th>
+                                    <th>Course Code</th>
+                                    <th>Course Name</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -134,7 +134,7 @@ $my_courses = $stmt_my_courses->fetchAll(PDO::FETCH_ASSOC);
                                             <td><?= htmlspecialchars($my_course['course_code']); ?></td>
                                             <td><?= htmlspecialchars($my_course['course_name']); ?></td>
                                             <td>
-                                                <a href="register_course.php?drop=<?= $my_course['reg_id']; ?>" class="btn btn-warning btn-sm" onclick="return confirm('Anda pasti mahu menggugurkan kursus ini?')">Gugur (Drop)</a>
+                                                <a href="register_course.php?drop=<?= $my_course['reg_id']; ?>" class="btn btn-warning btn-sm" onclick="return confirm('Anda pasti mahu unenroll kursus ini?')">Unenroll</a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>

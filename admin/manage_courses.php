@@ -61,31 +61,31 @@ if (isset($_GET['delete'])) {
         <div class="container">
             <a class="navbar-brand" href="dashboard.php">PCRS - Admin</a>
             <div class="d-flex">
-                <a href="dashboard.php" class="btn btn-outline-light btn-sm me-2">Kembali</a>
-                <a href="../auth/logout.php" class="btn btn-danger btn-sm">Log Keluar</a>
+                <a href="dashboard.php" class="btn btn-outline-light btn-sm me-2">Return</a>
+                <a href="../auth/logout.php" class="btn btn-danger btn-sm">Log Out</a>
             </div>
         </div>
     </nav>
 
     <div class="container mt-4">
-        <h3 class="mb-4">Pengurusan Kursus</h3>
+        <h3 class="mb-4">Course Registration</h3>
         <?= $message; ?>
 
         <div class="row">
             <div class="col-md-4 mb-4">
                 <div class="card shadow-sm">
-                    <div class="card-header bg-secondary text-white">Tambah Kursus Baru</div>
+                    <div class="card-header bg-secondary text-white">Add new course</div>
                     <div class="card-body">
                         <form action="manage_courses.php" method="POST">
                             <div class="mb-3">
-                                <label>Kod Kursus</label>
-                                <input type="text" name="course_code" class="form-control" placeholder="Contoh: DFP40443" required>
+                                <label>Course Code</label>
+                                <input type="text" name="course_code" class="form-control" placeholder="Example: DFP40443" required>
                             </div>
                             <div class="mb-3">
-                                <label>Nama Kursus</label>
-                                <input type="text" name="course_name" class="form-control" placeholder="Contoh: Full Stack Web Development" required>
+                                <label>Course Name</label>
+                                <input type="text" name="course_name" class="form-control" placeholder="Example: Full Stack Web Development" required>
                             </div>
-                            <button type="submit" name="add_course" class="btn btn-primary w-100">Simpan Kursus</button>
+                            <button type="submit" name="add_course" class="btn btn-primary w-100">Save Course</button>
                         </form>
                     </div>
                 </div>
@@ -94,17 +94,17 @@ if (isset($_GET['delete'])) {
             <div class="col-md-8">
                 <div class="card shadow-sm">
                     <div class="card-header bg-dark text-white d-flex justify-content-between align-items-center">
-                        <span>Senarai Kursus</span>
+                        <span>List of Courses</span>
                         <input type="text" id="search_box" class="form-control form-control-sm w-50" placeholder="Cari kod atau nama kursus...">
                     </div>
                     <div class="card-body p-0">
                         <table class="table table-hover table-striped m-0">
                             <thead>
                                 <tr>
-                                    <th>Bil</th>
-                                    <th>Kod Kursus</th>
-                                    <th>Nama Kursus</th>
-                                    <th>Tindakan</th>
+                                    <th>Num</th>
+                                    <th>Course Code</th>
+                                    <th>Course Name</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody id="course_table_body">

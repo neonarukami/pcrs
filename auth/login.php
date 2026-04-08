@@ -16,14 +16,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
         $userData = $stmt->fetch(PDO::FETCH_ASSOC);
 
-        // Sahkan pengguna dan kata laluan menggunakan password_verify()
+        //Pengesahan username dan password dengan password_verify()
         if ($userData && password_verify($pass, $userData['password'])) {
             // Tetapkan pembolehubah sesi
             $_SESSION['user_id'] = $userData['id'];
             $_SESSION['username'] = $userData['username'];
             $_SESSION['role'] = $userData['role'];
 
-            // Halakan (redirect) berdasarkan peranan
+            //refirect berdasarkan peranan
             if ($userData['role'] === 'admin') {
                 header("Location: ../admin/dashboard.php");
                 exit;
@@ -54,26 +54,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-md-6">
                 <div class="card shadow-sm">
                     <div class="card-header bg-success text-white text-center">
-                        <h4>Sistem Pendaftaran Kursus Politeknik (PCRS)</h4>
+                        <h4>Politeknik Course Registration System (PCRS)</h4>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title text-center mb-4">Log Masuk Pengguna</h5>
+                        <h5 class="card-title text-center mb-4">User Log in</h5>
                         
                         <?= $message; ?>
 
                         <form action="login.php" method="POST">
                             <div class="mb-3">
-                                <label for="username" class="form-label">Nama Pengguna</label>
+                                <label for="username" class="form-label">Username</label>
                                 <input type="text" class="form-control" id="username" name="username" required>
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label">Kata Laluan</label>
+                                <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="password" name="password" required>
                             </div>
-                            <button type="submit" class="btn btn-success w-100">Log Masuk</button>
+                            <button type="submit" class="btn btn-success w-100">Log in</button>
                         </form>
                         <div class="mt-3 text-center">
-                            Belum mendaftar? <a href="register.php">Daftar akaun baru</a>
+                            Belum mendaftar? <a href="register.php">Register new account</a>
                         </div>
                     </div>
                 </div>

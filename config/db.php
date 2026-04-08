@@ -1,17 +1,16 @@
 <?php
-// config db.php
+// config/db.php
 
-$host = '127.0.0.1'; // Use IP instead of localhost as a test
+$host = 'localhost';
 $dbname = 'pcrs_db';
-$username = 'root';
-$password = '';
-$port = 3308;
+$username = 'root'; // Nama pengguna lalai untuk XAMPP/Laragon
+$password = '';     // Kosongkan jika tiada kata laluan untuk XAMPP
 
 try {
-    $pdo = new PDO("mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4", $username, $password);
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    // Tetapkan mod ralat PDO kepada exception
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    echo "✅ Connected successfully!";
 } catch (PDOException $e) {
-    echo "❌ Error: " . $e->getMessage();
+    die("Ralat sambungan pangkalan data: " . $e->getMessage());
 }
 ?>

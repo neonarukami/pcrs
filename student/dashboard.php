@@ -20,12 +20,12 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'student') {
 <body class="bg-light">
     <nav class="navbar navbar-expand-lg navbar-dark bg-success">
         <div class="container">
-            <a class="navbar-brand" href="#">PCRS - Pelajar</a>
+            <a class="navbar-brand" href="#">PCRS - Student</a>
             <div class="d-flex">
                 <span class="navbar-text me-3 text-white">
                     Hai, <strong><?= htmlspecialchars($_SESSION['username']); ?></strong>
                 </span>
-                <a href="../auth/logout.php" class="btn btn-danger btn-sm">Log Keluar</a>
+                <a href="../auth/logout.php" class="btn btn-danger btn-sm">Log Out</a>
             </div>
         </div>
     </nav>
@@ -35,11 +35,11 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'student') {
             <div class="col-md-12">
                 <div class="card shadow-sm">
                     <div class="card-body text-center py-5">
-                        <h2 class="mb-4">Portal Pendaftaran Pelajar</h2>
-                        <p class="lead">Sila daftar kursus anda untuk semester ini di bawah.</p>
+                        <h2 class="mb-4">Student Registration Portal</h2>
+                        <p class="lead">Please register your course for current semester below.</p>
                         
                         <a href="register_course.php" class="btn btn-primary btn-lg mt-3">
-                            Daftar Kursus Baru
+                            Register new course
                         </a>
                     </div>
                 </div>

@@ -24,9 +24,9 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
             <a class="navbar-brand" href="#">PCRS - Admin</a>
             <div class="d-flex">
                 <span class="navbar-text me-3 text-white">
-                    Selamat datang, <strong><?= htmlspecialchars($_SESSION['username']); ?></strong>
+                    Welcome, <strong><?= htmlspecialchars($_SESSION['username']); ?></strong>
                 </span>
-                <a href="../auth/logout.php" class="btn btn-danger btn-sm">Log Keluar</a>
+                <a href="../auth/logout.php" class="btn btn-danger btn-sm">Log Out</a>
             </div>
         </div>
     </nav>
@@ -36,11 +36,11 @@ if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
             <div class="col-md-12">
                 <div class="card shadow-sm">
                     <div class="card-body text-center py-5">
-                        <h2 class="mb-4">Papan Pemuka Pentadbir</h2>
-                        <p class="lead">Di sini anda boleh menguruskan senarai kursus untuk pendaftaran pelajar.</p>
+                        <h2 class="mb-4">Administrator Dashboard</h2>
+                        <p class="lead">You can manage list of courses for student registration here. </p>
                         
                         <a href="manage_courses.php" class="btn btn-success btn-lg mt-3">
-                            Urus Kursus & Modul AJAX
+                            Manage courses and AJAX module
                         </a>
                     </div>
                 </div>

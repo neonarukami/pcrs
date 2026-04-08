@@ -13,10 +13,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validasi pelayan (Server-side validation)
     if (!empty($user) && !empty($pass) && !empty($role)) {
         try {
-            // Cincang kata laluan (Password hashing) untuk keselamatan
+            //Password hashing untuk keselamatan
             $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
 
-            // Gunakan prepared statements untuk mengelakkan SQL Injection
+            //Prepared statements untuk mengelakkan SQL Injection
             $stmt = $pdo->prepare("INSERT INTO users (username, password, role) VALUES (:username, :password, :role)");
             $stmt->bindParam(':username', $user);
             $stmt->bindParam(':password', $hashed_password);
@@ -52,34 +52,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <div class="col-md-6">
                 <div class="card shadow-sm">
                     <div class="card-header bg-primary text-white text-center">
-                        <h4>Sistem Pendaftaran Kursus Politeknik (PCRS)</h4>
+                        <h4>Politeknik Course Registration System (PCRS)</h4>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title text-center mb-4">Pendaftaran Pengguna Baru</h5>
+                        <h5 class="card-title text-center mb-4">New User Registration</h5>
                         
                         <?= $message; ?>
 
                         <form action="register.php" method="POST">
                             <div class="mb-3">
-                                <label for="username" class="form-label">Nama Pengguna</label>
+                                <label for="username" class="form-label">Username</label>
                                 <input type="text" class="form-control" id="username" name="username" required>
                             </div>
                             <div class="mb-3">
-                                <label for="password" class="form-label">Kata Laluan</label>
+                                <label for="password" class="form-label">Password</label>
                                 <input type="password" class="form-control" id="password" name="password" required>
                             </div>
                             <div class="mb-3">
-                                <label for="role" class="form-label">Peranan Pengguna</label>
+                                <label for="role" class="form-label">User Role</label>
                                 <select class="form-select" id="role" name="role" required>
-                                    <option value="" selected disabled>Pilih Peranan</option>
-                                    <option value="student">Pelajar</option>
-                                    <option value="admin">Pentadbir (Admin)</option>
+                                    <option value="" selected disabled>Select Role</option>
+                                    <option value="student">Student</option>
+                                    <option value="admin">Administrator</option>
                                 </select>
                             </div>
-                            <button type="submit" class="btn btn-primary w-100">Daftar</button>
+                            <button type="submit" class="btn btn-primary w-100">Register</button>
                         </form>
                         <div class="mt-3 text-center">
-                            Sudah mempunyai akaun? <a href="login.php">Log Masuk di sini</a>
+                            Have an account? <a href="login.php">Sign in here</a>
                         </div>
                     </div>
                 </div>
